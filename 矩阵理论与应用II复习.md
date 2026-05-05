@@ -1001,7 +1001,7 @@
 
    证明见教材P259、P260。该推论是由定理1.6.3推理得来。
 
-6. ==定理1.6.4==设矩阵 \(A \in \mathbb{C}_r^{m \times n}\) 有满秩分解 \(A=BC\)，其中，\(B \in \mathbb{C}_r^{m \times r}\)，\(C \in \mathbb{C}_r^{r \times n}\)，则
+6. ==定理1.6.4== 设矩阵 \(A \in \mathbb{C}_r^{m \times n}\) 有满秩分解 \(A=BC\)，其中，\(B \in \mathbb{C}_r^{m \times r}\)，\(C \in \mathbb{C}_r^{r \times n}\)，则
    $$
    \begin{aligned}
    A^+ &= C^H (CC^H)^{-1} (B^H B)^{-1} B^H \\
@@ -1013,9 +1013,9 @@
    >
    > 证明：将$A=BC$和$G=C^H(CC^H)^{-1}(B^HB)^{-1}B^H$依次代入四个Penrose方程，即可证明。
 
-7. ==推论1.6.2==若$A\in\mathbb{C}^{m×n}_n$，$A^+=(A^HA)^{-1}A^H$；若$A\in\mathbb{C}^{m×n}_m$，$A^+=A^H(AA^H)^{-1}$。
+7. ==推论1.6.2== 若$A\in\mathbb{C}^{m×n}_n$，$A^+=(A^HA)^{-1}A^H$；若$A\in\mathbb{C}^{m×n}_m$，$A^+=A^H(AA^H)^{-1}$。
 
-8. ==例1.6.2==求 \(A = \begin{bmatrix} 1 & 2 & 1 & 2 \\ 2 & 4 & 2 & 4 \\ 1 & 0 & 0 & 2 \end{bmatrix}\) 的伪逆。
+8. ==例1.6.2== 求 \(A = \begin{bmatrix} 1 & 2 & 1 & 2 \\ 2 & 4 & 2 & 4 \\ 1 & 0 & 0 & 2 \end{bmatrix}\) 的伪逆。
 
    > [!IMPORTANT]
    >
@@ -1053,13 +1053,13 @@
 
 10. ==注1：== 对于一般的矩阵 \(A\) 和 \(B\)，\((AB)^+ \neq B^+A^+\)；\(A^+A \neq AA^+ \neq I\)。
 
-11. ==推论1.6.3==（教材P262 推论5.6.3，无证明）线性方程组$A\boldsymbol x=\boldsymbol b$相容的充分必要条件为$AA^+\boldsymbol b=\boldsymbol b$，此时通解为
+11. ==推论1.6.3== （教材P262 推论5.6.3，无证明）线性方程组$A\boldsymbol x=\boldsymbol b$相容的充分必要条件为$AA^+\boldsymbol b=\boldsymbol b$，此时通解为
     $$
     \boldsymbol x=A^+\boldsymbol b+(I-A^+A)\boldsymbol y,\forall\boldsymbol y\in\mathbb{C}^n
     $$
     若方程不相容，则上式为其最小二乘通解式。
 
-12. ==定理1.6.5==向量$\boldsymbol x=A^+\boldsymbol b$既是相容方程$A\boldsymbol x=\boldsymbol b$的唯一极小范数解，也是不相容方程$A\boldsymbol x=\boldsymbol b$的唯一最佳逼近解。
+12. ==定理1.6.5== 向量$\boldsymbol x=A^+\boldsymbol b$既是相容方程$A\boldsymbol x=\boldsymbol b$的唯一极小范数解，也是不相容方程$A\boldsymbol x=\boldsymbol b$的唯一最佳逼近解。
 
     > [!NOTE]
     >
@@ -1102,6 +1102,12 @@
 15. ==例1.6.5== （教材P262 例5.6.4）求向量 \(b \in \mathbb{C}^n\) 在 \(R(A)\) 和 \(N(A)\) 上的正交投影，其中 \(A \in \mathbb{C}^{n \times n}\)。
 
     > [!IMPORTANT]
+    >
+    > 由于$AA^+$为正交投影矩阵（根据正交投影矩阵和$A^+$的定义得来），且$AA^+\boldsymbol b\in R(A)$，故$Proj_{R(A)}=AA^+\boldsymbol b$。又因为$N(A)\oplus R(A)$是正交直和分解，则$\boldsymbol b\in\mathbb{C}^n$在$N(A)$上的正交投影为
+    > $$
+    > Proj_{N(A)}\boldsymbol b=[I-A^H(A^H)^+]\boldsymbol b=(I-A^+A)\boldsymbol b
+    > $$
+    > 上面的等号是通过加号逆的性质第2条实现的。
     > $$
     > \begin{gather*}
     > P = A(A^H A)^- A^H = AA^+ \\
