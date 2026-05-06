@@ -74,7 +74,6 @@
    > 对于$V$和$A^HA$同理。
 
 6. ==引理1.1.1== 设$A\in\mathbb{C}^{m×n}$，则$rank(A^HA)=rank(AA^H)=rank(A)$。
-
    > [!NOTE]
    >
    > （以下推导过程需要了解掌握，可能出证明题）
@@ -84,7 +83,6 @@
    > 设$\vec x\in N(A^HA)$，则有$A^HA\vec{x}=0$。
 
 7. ==引理1.1.2== 设$A\in\mathbb{C}^{m×n}$，则$A^HA$与$AA^H$都是半正定Hermite矩阵。
-
    > [!NOTE]
    >
    > 矩阵$A$是半正定Hermite矩阵还有以下命题等价（PPT P13）
@@ -481,7 +479,6 @@
     辅助理解的例题：==例1.2.3==
 
 13. ==命题1.2.1（直积的性质）== 矩阵的Kronecker积具有以下性质：
-
     > [!IMPORTANT]
     >
     > （1）对任意复数 $k$，$(kA) \otimes B = A \otimes (kB) = k(A \otimes B)$;
@@ -573,7 +570,6 @@
 4. ==注2：== 尽管利用奇异值分解或满秩分解求解矩阵的减号逆表达比较简洁，但利用相抵分解求解的计算量相对较小。
 
 5. ==命题1.3.1（减号逆的性质）==
-
    > [!IMPORTANT]
    >
    > （1）$rank(A)\leq rank(A^-)$；
@@ -589,7 +585,6 @@
    首先讨论$A^{(1)}$与方程组$A\boldsymbol{x}=\boldsymbol{b}$相容性的关系。
 
 7. ==命题1.3.2（线性方程组相容条件）== 设$A\in\mathbb{C}^{m×n}$，$\boldsymbol{b}\in\mathbb{C}^m$，考察非齐次线性方程组$A\boldsymbol{x}=\boldsymbol{b}$，则以下表达式等价：
-
    > [!IMPORTANT]
    >
    > （1）$rank(A)=rank(A,\boldsymbol{b})$
@@ -630,7 +625,6 @@
     > 另外，若$\boldsymbol b=0$，则不论$A^{(1)}$是任何矩阵，方程的解都是$0$。此时，齐次方程组的解为$\boldsymbol x=[0,0,c]^T,\forall c\in\mathbb{C}$。相容方程组的解不能用$\boldsymbol x=A^{(1)}\boldsymbol b$来表示。
 
 11. ==定理1.3.2（相容线性方程组唯一解条件）== 设$A\in\mathbb{C}^{m×n}$，$A^{(1)}A=I_n$当且仅当矩阵$A$是列满秩的。此时，相容方程组$A\boldsymbol{x}=\boldsymbol{b}$有唯一解。（其实就是以前学过的列满秩系数矩阵构成的线性方程组具有唯一解）
-
     > [!NOTE]
     >
     > 证明：此处证的是当且仅当的部分。
@@ -658,7 +652,6 @@
 15. ==注4：== 对一般的矩阵$A$，$(AA^H)^-=(A^H)^-A^-$。
 
 16. ==推论1.3.2== 对任意矩阵$A\in\mathbb{C}^{m×n}$，$A(A^HA)^-A^HA=A$。（证明见教材P249 推论5.3.2）。
-
     > [!TIP]
     >
     > 另一种证明方法：
@@ -788,7 +781,6 @@
    该定理在解题中的应用：如果我们通过其他的方法获得了$G\in A\{1,4\}$，通过该定理可以直接得出$\boldsymbol x=G\boldsymbol b$为相容方程组$A\boldsymbol x=\boldsymbol b$的极小范数解。
 
 8. ==推论1.4.1== （教材P252 推论5.4.1）相容方程$A\boldsymbol x=\boldsymbol b$的极小范数解是唯一的。
-
    > [!NOTE]
    >
    > 证明：设$G_1\boldsymbol b$和$G_2\boldsymbol b$都是方程组$A\boldsymbol x=\boldsymbol b$的极小范数解，则$G_1,G_2\in A\{1,4\}$。又得知线性方程组$A\boldsymbol x=\boldsymbol b$是相容的，必存在向量$\boldsymbol z\in\mathbb{C}^n$使得$A\boldsymbol z=\boldsymbol b$。此时有
@@ -817,7 +809,6 @@
    > 另一种解法，奇异值分解（见教材P252、P253解法二，根据定理1.4.1求解）。
 
 10. ==例1.4.2== 求向量$\boldsymbol b\in\mathbb{C}^m$在$R(A^H)$上的正交投影，其中$A\in\mathbb{C}^{m×n}$。
-
     > [!IMPORTANT]
     >
     > 根据定理1.3.3，我们取正交投影矩阵$P=A^H(AA^H)^-A$，那么$P\boldsymbol b$即为向量$\boldsymbol b$在$R(A^H)$上的正交投影。$P\boldsymbol b=A_m^-A\boldsymbol b$。
@@ -866,7 +857,6 @@
 8. ==推论1.5.2== 给定$A\in\mathbb{C}^{m×n}$和$\boldsymbol b\in\mathbb{C}^m$，有$A(A^HA)^-A^H\boldsymbol b=AA_l^-\boldsymbol b$。
 
 9. ==定理1.5.6== 矩阵$G\in A\{1,3\}$的充要条件为$\boldsymbol x=G\boldsymbol b$是不相容方程$A\boldsymbol x=\boldsymbol b$的最小二乘解。
-
    > [!NOTE]
    >
    > 证明：
@@ -906,7 +896,6 @@
     > 步骤二：将$G$代入推论1.5.3中的通解式即可。
 
 13. ==定理1.5.5== 不相容方程组$A\boldsymbol x=\boldsymbol b$具有唯一的最小二乘解当且仅当$A$是列满秩矩阵。
-
     > [!NOTE]
     >
     > 证明：由推论1.5.1知，不相容方程组$A\boldsymbol x=\boldsymbol b$的最小二乘解与相容方程$A\boldsymbol x=AA_l^-\boldsymbol b$等价。再由定理1.3.2可知，相容方程组有唯一解当且仅当$A$列满秩。
@@ -968,7 +957,6 @@
    定理1.6.1利用奇异值分解给出了矩阵$A$的最小二乘广义逆的一个特解，该定理表明矩阵的加号逆一定存在，也表明矩阵的任一广义逆矩阵都存在。
 
 2. ==定理1.6.2（加号逆唯一性定理）== 任给矩阵\(A \in \mathbb{C}^{m \times n}\)，其加号逆\(A^+\)唯一。
-
    > [!NOTE]
    >
    > 证明：假设\(X\)和\(Y\)均满足四个Penrose方程
@@ -992,7 +980,6 @@
    该定理直接给出了如何通过公式计算加号逆。
 
 4. ==例1.6.1== 已知矩阵 \(A = \begin{bmatrix} -1 & 0 & 1 \\ 2 & 0 & -2 \end{bmatrix}\)，求 \(A^+\)。
-
    > [!IMPORTANT]
    >
    > 按照定理1.6.3的方法来直接计算即可。
@@ -1016,7 +1003,6 @@
 7. ==推论1.6.2== 若$A\in\mathbb{C}^{m×n}_n$，$A^+=(A^HA)^{-1}A^H$；若$A\in\mathbb{C}^{m×n}_m$，$A^+=A^H(AA^H)^{-1}$。
 
 8. ==例1.6.2== 求 \(A = \begin{bmatrix} 1 & 2 & 1 & 2 \\ 2 & 4 & 2 & 4 \\ 1 & 0 & 0 & 2 \end{bmatrix}\) 的伪逆。
-
    > [!IMPORTANT]
    >
    > 方法一：奇异值分解
@@ -1036,7 +1022,6 @@
    > 5、$A=BC$，分解完毕。
 
 9. ==命题1.6.1（加号逆的性质）== 设 \(A \in \mathbb{C}^{m \times n}\)，则
-
    > [!IMPORTANT]
    >
    > (1) \((A^+)^+ = A\)；
@@ -1060,7 +1045,6 @@
     若方程不相容，则上式为其最小二乘通解式。
 
 12. ==定理1.6.5== 向量$\boldsymbol x=A^+\boldsymbol b$既是相容方程$A\boldsymbol x=\boldsymbol b$的唯一极小范数解，也是不相容方程$A\boldsymbol x=\boldsymbol b$的唯一最佳逼近解。
-
     > [!NOTE]
     >
     > 证明：$\because A^+\in A\{1,4\}$，$\therefore \boldsymbol x=A^+\boldsymbol b$是相容方程的唯一极小范数解（定理1.4.4+推论1.4.1，相容方程的极小范数解是唯一的，且当$G\in A\{1,4\}$的充要条件是$\boldsymbol x=G\boldsymbol b$是相容方程的极小范数解）。
@@ -1086,7 +1070,6 @@
     > 解题思路：按照奇异值分解（定理1.6.3）或者满秩分解（定理1.6.4）求得$A^+$后，再通过定理1.6.5，计算$\boldsymbol x=A^+\boldsymbol b$即可。
 
 14. ==例1.6.4（最小二乘问题）== 考查线性方程组 \(Ax=b\)，其中，矩阵 \(A \in \mathbb{C}^{m \times n}\) 和向量 \(b \in \mathbb{C}^m\) 给定，向量 \(x \in \mathbb{C}^n\) 待定。求向量 \(x\) 使得 \(\|Ax-b\|_2\) 最小。
-
     > [!IMPORTANT]
     >
     > \(A^H Ax = A^H b\) 范数最小的解（唯一）
@@ -1100,7 +1083,6 @@
     > $$
 
 15. ==例1.6.5== （教材P262 例5.6.4）求向量 \(b \in \mathbb{C}^n\) 在 \(R(A)\) 和 \(N(A)\) 上的正交投影，其中 \(A \in \mathbb{C}^{n \times n}\)。
-
     > [!IMPORTANT]
     >
     > 由于$AA^+$为正交投影矩阵（根据正交投影矩阵和$A^+$的定义得来），且$AA^+\boldsymbol b\in R(A)$，故$Proj_{R(A)}=AA^+\boldsymbol b$。又因为$N(A)\oplus R(A)$是正交直和分解，则$\boldsymbol b\in\mathbb{C}^n$在$N(A)$上的正交投影为
