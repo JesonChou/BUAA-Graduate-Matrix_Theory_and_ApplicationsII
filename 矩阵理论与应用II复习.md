@@ -856,21 +856,8 @@
 
 8. ==推论1.5.2== 给定$A\in\mathbb{C}^{m×n}$和$\boldsymbol b\in\mathbb{C}^m$，有$A(A^HA)^-A^H\boldsymbol b=AA_l^-\boldsymbol b$。
 
-9. ==定理1.5.6== 矩阵$G\in A\{1,3\}$的充要条件为$\boldsymbol x=G\boldsymbol b$是不相容方程$A\boldsymbol x=\boldsymbol b$的最小二乘解。
-   > [!NOTE]
-   >
-   > 证明：
-   >
-   > 必要性（由结论推条件）：设$G\in A\{1,3\}$，则有$AGA=A$和$(GA)^H=GA$。令$\boldsymbol x=G\boldsymbol b$，则$A\boldsymbol x-\boldsymbol b=AG\boldsymbol b-\boldsymbol b$。
-   > $$
-   > ||A\boldsymbol x-\boldsymbol b||^2_2=||A\boldsymbol x||^2_2+||\boldsymbol b||^2_2+2(A\boldsymbol x)·\boldsymbol b\\
-   > =||AG\boldsymbol b||^2_2+||\boldsymbol b||^2_2+2(AG\boldsymbol b)^H\boldsymbol b\\
-   > =
-   > $$
-   > 这表明$\boldsymbol x=G\boldsymbol b$是不相容方程组$A\boldsymbol x=\boldsymbol b$的最小二乘解。
-   >
-   > 充分性（由条件推结论）：
-
+9. ==定理1.5.5==（教材P255 定理5.5.5） 矩阵$G\in A\{1,3\}$的充要条件为$\boldsymbol x=G\boldsymbol b$是不相容方程$A\boldsymbol x=\boldsymbol b$的最小二乘解。
+   
 10. ==推论1.5.3== 向量$\boldsymbol x$是不相容方程组$A\boldsymbol x=\boldsymbol b$的最小二乘解当且仅当$\boldsymbol x$是相容方程组$A\boldsymbol x=AA_l^-\boldsymbol b$的解，且$A\boldsymbol x=\boldsymbol b$的最小二乘解通式为
     $$
     \boldsymbol x=A_l^-\boldsymbol b+(I-A_l^-A)\boldsymbol y,\forall\boldsymbol y\in\mathbb{C}^n

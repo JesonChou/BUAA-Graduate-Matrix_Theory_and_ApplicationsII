@@ -4,8 +4,6 @@
 
 # 1.自测题
 
-# 矩阵理论Ⅱ复习题
-
 1.  设 \(A, B \in \mathbb{C}^{n \times n}\)，且 \(A\) 的特征值全为实数，证明：矩阵方程 \(X + AXA + A^2 XA^2 = B\) 有唯一解。
 
 2.  证明：\(A \in \mathbb{R}_r^{m \times n}\)，\(\sigma_i\) \((1 \leq i \leq r)\) 为奇异值，则 \(\operatorname{tr}(A^{\mathrm{H}}A) = \sum_{i = 1}^{r} \sigma_i^2\)。
@@ -44,7 +42,7 @@ b = \begin{pmatrix}
 
 (2) 求 \(Ax = b\) 的极小范数解或极小最小二乘解。
 
-8.  设
+9.  设
     \[
     A(t) = \begin{pmatrix}
     e^{2t} & t e^{t} \\
@@ -54,7 +52,7 @@ b = \begin{pmatrix}
     (1) 证明 \(A(t)\) 可逆并求 \(A^{-1}(t)\)；
     (2) 求 \(\dfrac{\mathrm{d}}{\mathrm{d}t} A^{-1}(t)\)。
 
-9. 设
+10. 设
    \[
    A(t) = \begin{pmatrix}
    t \cos t & e^{t} \sin t \\
@@ -65,7 +63,7 @@ b = \begin{pmatrix}
    (1) \(\dfrac{\mathrm{d}A(t)}{\mathrm{d}t}\)；
    (2) \(\displaystyle\int_{0}^{t} A(s) \mathrm{d}s\)。
 
-10. 设
+11. 设
     \[
     A = \begin{pmatrix}
     -1 & -2 & 6 \\
@@ -82,18 +80,6 @@ b = \begin{pmatrix}
     \]
     满足初始条件 \(x(0) = (-1,0,1)^{\mathrm{T}}\) 的解。
 
-11. 证明：若 \(AX = b\) 不相容，则 \(A^{H} A X = A^{H} b\) 一定有解，且它的解也是 \(AX = b\) 的最小二乘解。
-
-
-
-
-
-
-
-
-
-
-
-
+12. 证明：若 \(AX = b\) 不相容，则 \(A^{H} A X = A^{H} b\) 一定有解，且它的解也是 \(AX = b\) 的最小二乘解。
 
 # 2.往年题
