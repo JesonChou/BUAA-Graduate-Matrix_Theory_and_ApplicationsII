@@ -634,3 +634,241 @@
     > 故 $A^HAx = A^Hb$ 的解确为 $Ax = b$ 的最小二乘解。
     >
     > **注：** 由《矩阵理论与应用II复习》 §1.1.5 注2，方程组 $A^HAx = A^Hb$、$Ax = AA_l^-b$ 和 $Ax = A(A^HA)^-A^Hb$ 是相容同解方程组，它们都等价于最小二乘问题。
+
+# 2.往年真题
+
+这一部分只整理一些不太常规的出题方式、易错点以及一些比较细节的结论性知识点。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+1. 设$A$是$n$阶可逆矩阵，则$\begin{pmatrix} A & A \\ A & A \end{pmatrix}$的伪逆是
+
+   > [!IMPORTANT]
+   >
+   > **【原理依据】** 使用 **定理1.6.4（满秩分解求加号逆）**（见《矩阵理论与应用II复习》 §1.1.6）：若 $B = CD$ 为满秩分解，则 $B^+ = D^H(DD^H)^{-1}(C^HC)^{-1}C^H$。再利用加号逆唯一性（**定理1.6.2**），通过验证四条Penrose方程确认结果。
+   >
+   > ---
+   >
+   > **【解法一：满秩分解法（推荐）】**
+   >
+   > 记 $B = \begin{pmatrix} A & A \\ A & A \end{pmatrix} \in \mathbb{C}^{2n \times 2n}$。由于 $A$ 可逆，易见：
+   >
+   > $$
+   > B = \begin{pmatrix} A \\ A \end{pmatrix} \begin{pmatrix} I_n & I_n \end{pmatrix}
+   > $$
+   >
+   > 令 $C = \begin{pmatrix} A \\ A \end{pmatrix} \in \mathbb{C}^{2n \times n}$（列满秩，因 $A$ 可逆），$D = \begin{pmatrix} I_n & I_n \end{pmatrix} \in \mathbb{C}^{n \times 2n}$（行满秩），则 $B = CD$ 是 $B$ 的满秩分解，$\text{rank}(B) = n$。
+   >
+   > **步骤一：计算 $D^H(DD^H)^{-1}$**
+   >
+   > $$
+   > D^H = \begin{pmatrix} I_n \\ I_n \end{pmatrix}, DD^H = \begin{pmatrix} I_n & I_n \end{pmatrix}\begin{pmatrix} I_n \\ I_n \end{pmatrix} = 2I_n,  (DD^H)^{-1} = \frac{1}{2}I_n
+   > $$
+   >
+   > 
+   > $$
+   > D^H(DD^H)^{-1} = \frac{1}{2}\begin{pmatrix} I_n \\ I_n \end{pmatrix}
+   > $$
+   >
+   > **步骤二：计算 $(C^HC)^{-1}C^H$**
+   >$$
+   > C^H = \begin{pmatrix} A^H & A^H \end{pmatrix}, C^HC = \begin{pmatrix} A^H & A^H \end{pmatrix}\begin{pmatrix} A \\ A \end{pmatrix} = A^HA + A^HA = 2A^HA
+   > $$
+   > 
+   >$$
+   > (C^HC)^{-1} = \frac{1}{2}(A^HA)^{-1} = \frac{1}{2}A^{-1}(A^H)^{-1}
+   > $$
+   > 
+   >$$
+   > (C^HC)^{-1}C^H = \frac{1}{2}A^{-1}(A^H)^{-1}\begin{pmatrix} A^H & A^H \end{pmatrix} = \frac{1}{2}A^{-1}\begin{pmatrix} I_n & I_n \end{pmatrix}
+   > $$
+   > 
+   >**步骤三：合并求 $B^+$**
+   > 
+   >$$
+   > B^+ = D^H(DD^H)^{-1}(C^HC)^{-1}C^H = \frac{1}{2}\begin{pmatrix} I_n \\ I_n \end{pmatrix} \cdot \frac{1}{2}A^{-1}\begin{pmatrix} I_n & I_n \end{pmatrix}
+   > $$
+   > 
+   >$$
+   > B^+ = \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix}
+   > $$
+   > 
+   >---
+   > 
+   >**【解法二：直接验证四条Penrose方程】**
+   > 
+   >猜想 $B^+ = \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix}$，逐条验证：
+   > 
+   >**（1）$BB^+B = B$：**
+   > 
+   >$$
+   > BB^+ = \begin{pmatrix} A & A \\ A & A \end{pmatrix} \cdot \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix} = \frac{1}{4}\begin{pmatrix} 2I_n & 2I_n \\ 2I_n & 2I_n \end{pmatrix} = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix}
+   > $$
+   > 
+   >$$
+   > BB^+B = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix}\begin{pmatrix} A & A \\ A & A \end{pmatrix} = \frac{1}{2}\begin{pmatrix} 2A & 2A \\ 2A & 2A \end{pmatrix} = \begin{pmatrix} A & A \\ A & A \end{pmatrix} = B
+   > $$
+   > 
+   >满足第一条 Penrose 方程。
+   > 
+   >**（2）$B^+BB^+ = B^+$：**
+   > 
+   >$$
+   > B^+B = \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix}\begin{pmatrix} A & A \\ A & A \end{pmatrix} = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix}
+   > $$
+   > 
+   >$$
+   > B^+BB^+ = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix} \cdot \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix} = \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix} = B^+
+   > $$
+   > 
+   >满足第二条 Penrose 方程。
+   > 
+   >**（3）$(BB^+)^H = BB^+$：**
+   > 
+   >$$
+   > BB^+ = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix}, \quad (BB^+)^H = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix} = BB^+
+   > $$
+   > 
+   >满足第三条 Penrose 方程。
+   > 
+   >**（4）$(B^+B)^H = B^+B$：**
+   > 
+   >$B^+B = \frac{1}{2}\begin{pmatrix} I_n & I_n \\ I_n & I_n \end{pmatrix}$ 显然为 Hermite 矩阵，$(B^+B)^H = B^+B$。满足第四条 Penrose 方程。
+   > 
+   >由加号逆唯一性（**定理1.6.2**），
+   > 
+   >$$
+   > B^+ = \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix}
+   > $$
+   > 
+   >---
+   > 
+   >**【注】** 此题也可利用推论1.6.2：$C$ 列满秩时 $C^+ = (C^HC)^{-1}C^H$，$D$ 行满秩时 $D^+ = D^H(DD^H)^{-1}$，结合满秩分解 $B=CD$ 直接求得 $B^+ = D^+C^+$（注意：一般情况下 $(CD)^+ \neq D^+C^+$，但此处因 $C$ 列满秩、$D$ 行满秩且乘积结构与秩匹配，可验证等号成立）。实际上此题中 $D^+C^+ = \frac{1}{2}\begin{pmatrix} I_n \\ I_n \end{pmatrix} \cdot \frac{1}{2}A^{-1}\begin{pmatrix} I_n & I_n \end{pmatrix} = \frac{1}{4}\begin{pmatrix} A^{-1} & A^{-1} \\ A^{-1} & A^{-1} \end{pmatrix}$，结果一致。
+
+2. 设$A=\begin{pmatrix} 2 & i \\ 0 & 0  \\ 0 & 0 \end{pmatrix}$，求$A$的奇异值分解。
+
+   > [!WARNING]
+   >
+   > 注意，对于带有复数的矩阵，转置时需要将每一项中的虚部取相反数。
+   >
+   > 本题中，$A^H=\begin{pmatrix} 2 & 0 & 0 \\ -i & 0 & 0 \end{pmatrix}$。一定注意，不然后续会计算错误。
+
+3. $A=\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$，$B=\begin{pmatrix} a & 1 & 2 \\ 0 & b & 1 \\ 0&0&c\end{pmatrix}$，则$A\otimes B=$__________________，$A\otimes B$的特征值为__________________。
+
+   > [!IMPORTANT]
+   >
+   > 第一空使用矩阵直积的定义，第二空，矩阵直积的特征值为
+
+4. 已知$A$的广义逆$A^+=\begin{pmatrix} 1 & 3 & -2 \\ -\frac{3}{2} & -3 & \frac{5}{2} \\ 1&1&-1\end{pmatrix}$，求矩阵$A$。
+
+   > [!IMPORTANT]
+   >
+   > **【原理依据】**
+   > - **命题1.6.1(1)**（见《矩阵理论与应用II复习》 §1.1.6）：$(A^+)^+ = A$；
+   > - **引理**：若 $n$ 阶方阵 $G$ 可逆，则 $G^+ = G^{-1}$（证明见下文步骤二）；
+   > - **定理1.6.2（加号逆唯一性）**：满足四条 Penrose 方程的矩阵唯一。
+   >
+   > **【逻辑链条】**
+   > $$A^+ \text{ 可逆} \;\xrightarrow{\text{引理}}\; (A^+)^+ = (A^+)^{-1} \;\xrightarrow{\text{命题1.6.1(1)}}\; A = (A^+)^+ = (A^+)^{-1}$$
+   >
+   > 故只需验证 $A^+$ 可逆，再求其普通逆即可。
+   >
+   > ---
+   >
+   > **步骤一：验证 $A^+$ 可逆。**
+   >
+   > 计算行列式：
+   >
+   > $$
+   > \begin{aligned}
+   > \det(A^+) &= \begin{vmatrix} 1 & 3 & -2 \\[4pt] -\frac{3}{2} & -3 & \frac{5}{2} \\[4pt] 1 & 1 & -1 \end{vmatrix} \\[8pt]
+   > &= 1 \cdot \begin{vmatrix} -3 & \frac{5}{2} \\[4pt] 1 & -1 \end{vmatrix} - 3 \cdot \begin{vmatrix} -\frac{3}{2} & \frac{5}{2} \\[4pt] 1 & -1 \end{vmatrix} + (-2) \cdot \begin{vmatrix} -\frac{3}{2} & -3 \\[4pt] 1 & 1 \end{vmatrix} \\[8pt]
+   > &= 1 \cdot \left(3 - \frac{5}{2}\right) - 3 \cdot \left(\frac{3}{2} - \frac{5}{2}\right) - 2 \cdot \left(-\frac{3}{2} + 3\right) \\[8pt]
+   > &= \frac{1}{2} - 3 \cdot (-1) - 2 \cdot \frac{3}{2} \\[8pt]
+   > &= \frac{1}{2} + 3 - 3 = \frac{1}{2} \neq 0
+   > \end{aligned}
+   > $$
+   >
+   > 故 $A^+$ 可逆，$\text{rank}(A^+) = 3$。
+   >
+   > ---
+   >
+   > **步骤二：证明引理——若 $n$ 阶方阵 $G$ 可逆，则 $G^+ = G^{-1}$。**
+   >
+   > 由 **定理1.6.2（加号逆唯一性定理）**，加号逆是唯一的。因此只需验证 $G^{-1}$ 满足四条 Penrose 方程即可：
+   >
+   > | Penrose 方程 | 验证 |
+   > |:---:|:---|
+   > | (1) $G X G = G$ | $G \cdot G^{-1} \cdot G = I \cdot G = G$ ✓ |
+   > | (2) $X G X = X$ | $G^{-1} \cdot G \cdot G^{-1} = I \cdot G^{-1} = G^{-1}$ ✓ |
+   > | (3) $(GX)^H = GX$ | $(G G^{-1})^H = I^H = I = G G^{-1}$ ✓ |
+   > | (4) $(XG)^H = XG$ | $(G^{-1} G)^H = I^H = I = G^{-1} G$ ✓ |
+   >
+   > $G^{-1}$ 全部满足，由唯一性即得 $G^+ = G^{-1}$。
+   >
+   > **应用于本题：** 令 $G = A^+$，则 $(A^+)^+ = (A^+)^{-1}$。再由命题1.6.1(1)：$(A^+)^+ = A$，故 $A = (A^+)^{-1}$。
+   >
+   > ---
+   >
+   > **步骤三：求 $(A^+)^{-1}$。**
+   >
+   > 使用伴随矩阵法。先计算各元素的代数余子式：
+   >
+   > $$
+   > \begin{aligned}
+   > C_{11} &= +\begin{vmatrix} -3 & \frac{5}{2} \\[4pt] 1 & -1 \end{vmatrix} = 3 - \frac{5}{2} = \frac{1}{2}, &
+   > C_{12} &= -\begin{vmatrix} -\frac{3}{2} & \frac{5}{2} \\[4pt] 1 & -1 \end{vmatrix} = -\left( \frac{3}{2} - \frac{5}{2} \right) = 1, \\[8pt]
+   > C_{13} &= +\begin{vmatrix} -\frac{3}{2} & -3 \\[4pt] 1 & 1 \end{vmatrix} = -\frac{3}{2} + 3 = \frac{3}{2}, &
+   > C_{21} &= -\begin{vmatrix} 3 & -2 \\[4pt] 1 & -1 \end{vmatrix} = -(-3 + 2) = 1, \\[8pt]
+   > C_{22} &= +\begin{vmatrix} 1 & -2 \\[4pt] 1 & -1 \end{vmatrix} = -1 + 2 = 1, &
+   > C_{23} &= -\begin{vmatrix} 1 & 3 \\[4pt] 1 & 1 \end{vmatrix} = -(1 - 3) = 2, \\[8pt]
+   > C_{31} &= +\begin{vmatrix} 3 & -2 \\[4pt] -3 & \frac{5}{2} \end{vmatrix} = \frac{15}{2} - 6 = \frac{3}{2}, &
+   > C_{32} &= -\begin{vmatrix} 1 & -2 \\[4pt] -\frac{3}{2} & \frac{5}{2} \end{vmatrix} = -\left( \frac{5}{2} - 3 \right) = \frac{1}{2}, \\[8pt]
+   > C_{33} &= +\begin{vmatrix} 1 & 3 \\[4pt] -\frac{3}{2} & -3 \end{vmatrix} = -3 + \frac{9}{2} = \frac{3}{2}.
+   > \end{aligned}
+   > $$
+   >
+   > 余子式矩阵 $\begin{pmatrix} \frac{1}{2} & 1 & \frac{3}{2} \\[4pt] 1 & 1 & 2 \\[4pt] \frac{3}{2} & \frac{1}{2} & \frac{3}{2} \end{pmatrix}$，转置得伴随矩阵：
+   >
+   > $$
+   > \text{adj}(A^+) = \begin{pmatrix} \frac{1}{2} & 1 & \frac{3}{2} \\[4pt] 1 & 1 & \frac{1}{2} \\[4pt] \frac{3}{2} & 2 & \frac{3}{2} \end{pmatrix}
+   > $$
+   >
+   > 故：
+   >
+   > $$
+   > A = (A^+)^{-1} = \frac{1}{\det(A^+)} \cdot \text{adj}(A^+) = 2 \cdot \begin{pmatrix} \frac{1}{2} & 1 & \frac{3}{2} \\[4pt] 1 & 1 & \frac{1}{2} \\[4pt] \frac{3}{2} & 2 & \frac{3}{2} \end{pmatrix}
+   > $$
+   >
+   > $$
+   > A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 2 & 1 \\ 3 & 4 & 3 \end{pmatrix}
+   > $$
+   >
+   > ---
+   >
+   > **步骤四：验证 $A^+ A = I_3$。**
+   >$$
+   > \begin{aligned}
+   > A^+A &= \begin{pmatrix} 1 & 3 & -2 \\[4pt] -\frac{3}{2} & -3 & \frac{5}{2} \\[4pt] 1 & 1 & -1 \end{pmatrix} \begin{pmatrix} 1 & 2 & 3 \\ 2 & 2 & 1 \\ 3 & 4 & 3 \end{pmatrix} \\[8pt]
+   > &= \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = I_3
+   > \end{aligned}
+   > $$
+   > 
+   > 验证通过。由 $A^+A = I_3$ 及 $A^+$ 可逆亦得 $AA^+ = I_3$，故求得的 $A$ 确实以给定矩阵为其加号逆。
+   > 
+   > $$
+   >A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 2 & 1 \\ 3 & 4 & 3 \end{pmatrix}
+   > $$
+
+5. 
+
+
+
+
+
+
+
+
+
+
+
+
+
